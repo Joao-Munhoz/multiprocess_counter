@@ -23,9 +23,8 @@ int main() {
 	int contador = 0;
 	pid_t filho[64];
 	int protection = PROT_READ | PROT_WRITE;
-    int visibility = MAP_SHARED | MAP_ANON;
-
-  /* Criacao de memoria compartilhada */
+     int visibility = MAP_SHARED | MAP_ANON;
+ 
   	int  *buffer;	
 	
 	fgets(s, 100, stdin);
@@ -40,6 +39,7 @@ int main() {
 		vet[n++] = atoi(t);
 	}
 
+	/* Criacao de memoria compartilhada */
 	buffer = (int *) mmap(NULL, sizeof(int)*n, protection, visibility, 0, 0);
 
 	for(i=0; i < n; i++){
